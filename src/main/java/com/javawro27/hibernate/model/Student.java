@@ -5,12 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
+@Table()
 @Entity //jest to klasa bazodanowa (Uwaga! nie zapomnij o pliku cfg.xml)
 @Builder
 @NoArgsConstructor
@@ -30,6 +28,8 @@ public class Student {
     private int age;
     private boolean alive; // nie isAlive
 
+    @Enumerated (value = EnumType.STRING)
+    //bo inaczej jak pozmieniam kolejność w Enum, to będą inne wartości niż początkowow
     private Behaviour behaviour;
 
 }

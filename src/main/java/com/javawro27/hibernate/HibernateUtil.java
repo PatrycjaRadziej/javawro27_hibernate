@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+// Ta klasa załaduje naszą konfigurację bazodanową
 public class HibernateUtil {
     private static final SessionFactory ourSessionFactory;
 
@@ -11,6 +12,8 @@ public class HibernateUtil {
     static{
         try {
             System.out.println("Konfiguruję hibernate");
+
+            // ta klasa domyślnie odwołuje się do pliku konfiguracyjnego hibernate w formacie podanym w resources
             Configuration configuration = new Configuration();
             configuration.configure("/hibernate.cfg.xml");
 
@@ -18,7 +21,7 @@ public class HibernateUtil {
         } catch (HibernateException he){
             System.err.println(he.getMessage());
 
- //         System.exit(376);
+ //         System.exit(376); // liczba która jest kodem błędu - jeśli zobaczymy w logach błąd o tej wartości to oznacza błąd hibernate
             throw he;
 
         }
