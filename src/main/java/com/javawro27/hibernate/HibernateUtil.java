@@ -17,8 +17,10 @@ public class HibernateUtil {
             ourSessionFactory = configuration.buildSessionFactory();
         } catch (HibernateException he){
             System.err.println(he.getMessage());
-            System.exit(376);
+
+ //         System.exit(376);
             throw he;
+
         }
     }
 
